@@ -1,4 +1,4 @@
-// Ask for name once and remember it
+// 1️⃣ Ask for name once and remember it
 let userName = localStorage.getItem("sunnahSparksName");
 
 if (!userName) {
@@ -16,3 +16,27 @@ if (userName) {
 } else {
   greetingEl.textContent = "Assalamu alaykum";
 }
+
+// 2️⃣ Sunnah list
+const sunnahs = [
+  { act: "Smile at someone", reason: "Smiling is charity", source: "Tirmidhi" },
+  { act: "Say Bismillah before eating", reason: "To remember Allah and bless the food", source: "Bukhari" },
+  { act: "Pray two rakats after waking up", reason: "Starts your day with Allah’s remembrance", source: "Muslim" }
+];
+
+// 3️⃣ Gift box click event
+const giftBox = document.querySelector(".gift-box");
+
+giftBox.addEventListener("click", () => {
+  // Pick a random Sunnah
+  const randomIndex = Math.floor(Math.random() * sunnahs.length);
+  const sunnah = sunnahs[randomIndex];
+
+  // Show it in the hint text area
+  const hintEl = document.querySelector(".hint");
+  hintEl.innerHTML = `
+    <strong>${sunnah.act}</strong><br>
+    ${sunnah.reason}<br>
+    <em>(${sunnah.source})</em>
+  `;
+});
