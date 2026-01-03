@@ -28,11 +28,9 @@ const sunnahs = [
 const giftBox = document.querySelector(".gift-box");
 
 giftBox.addEventListener("click", () => {
-  // Pick a random Sunnah
   const randomIndex = Math.floor(Math.random() * sunnahs.length);
   const sunnah = sunnahs[randomIndex];
 
-  // Show it in the hint text area
   const hintEl = document.querySelector(".hint");
   hintEl.innerHTML = `
     <strong>${sunnah.act}</strong><br>
